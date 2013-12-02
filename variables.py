@@ -1,3 +1,4 @@
+import debug
 from pint import UnitRegistry
 ureg = UnitRegistry()
 
@@ -11,15 +12,19 @@ S_w = 185 * ureg.ft ** 2
 b_w = 33 * ureg.ft
 W = 2800 * ureg.lbf
 V_0 = 180 * ureg.ft / ureg.sec
-I_xx_b = 1000 * ureg.slug * ureg.ft ** 2
-I_yy_b = 3000 * ureg.slug * ureg.ft ** 2
-I_zz_b = 3500 * ureg.slug * ureg.ft ** 2
-I_xy_b = 0 * ureg.slug * ureg.ft ** 2
-I_xz_b = 30 * ureg.slug * ureg.ft ** 2
-I_yz_b = 0 * ureg.slug * ureg.ft ** 2
-h_x_b = 0 * ureg.slug * ureg.ft ** 2
-h_y_b = 0 * ureg.slug * ureg.ft ** 2
-h_z_b = 0 * ureg.slug * ureg.ft ** 2
+
+h = {}
+h["x_b"] = 0 * ureg.slug * ureg.ft ** 2
+h["y_b"] = 0 * ureg.slug * ureg.ft ** 2
+h["z_b"] = 0 * ureg.slug * ureg.ft ** 2
+
+I = {}
+I["xx_b"] = 1000 * ureg.slug * ureg.ft ** 2
+I["xy_b"] = 3000 * ureg.slug * ureg.ft ** 2
+I["yx_b"] = 3500 * ureg.slug * ureg.ft ** 2
+I["yz_b"] = 0 * ureg.slug * ureg.ft ** 2   
+I["zx_b"] = 30 * ureg.slug * ureg.ft ** 2  
+I["zy_b"] = 0 * ureg.slug * ureg.ft ** 2   
 
 C = {}
 C['L0'] = 0.393
@@ -53,18 +58,6 @@ C['Y,rbar'] = 0.240
 C['l,rbar'] = 0.105
 C['n,rbar'] = -0.125
 
-# print("rho =",rho)
-# print("S_w =",S_w)
-# print("b_w =",b_w)
-# print("W =",W)
-# print("V_0 =",V_0)
-# print("I_xx_b =",I_xx_b)
-# print("I_yy_b =",I_yy_b)
-# print("I_zz_b =",I_zz_b)
-# print("I_xy_b =",I_xy_b)
-# print("I_xz_b =",I_xz_b)
-# print("I_yz_b =",I_yz_b)
-# print("h_x_b =",h_x_b)
-# print("h_y_b =",h_y_b)
-# print("h_z_b =",h_z_b)
-# print("Constants:",C)
+# printr(h)
+# printr(I)
+# printr(C)

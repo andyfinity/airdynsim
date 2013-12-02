@@ -3,12 +3,13 @@ from variables import * #C,W,rho,V_0,S_w,I_xx_b,I_yy_b,I_zz_b,I_xy_b,I_xz_b,I_xy
 from pint import UnitRegistry
 ureg = UnitRegistry()
 
-i_xy = I_xy_b/I_xx_b;
-i_xz = I_xz_b/I_xx_b;
-i_yx = I_xy_b/I_yy_b;
-i_yz = I_yz_b/I_yy_b;
-i_zx = I_xz_b/I_zz_b;
-i_zy = I_yz_b/I_zz_b;
+i = {}
+i["xy"] = I["xy_b"]/I["xx_b"]
+i["xz"] = I["xz_b"]/I["xx_b"]
+i["yx"] = I["xy_b"]/I["yy_b"]
+i["yz"] = I["yz_b"]/I["yy_b"]
+i["zx"] = I["xz_b"]/I["zz_b"]
+i["zy"] = I["yz_b"]/I["zz_b"]
 
 C['L0'] = (W / (1/2 * rho * V_0 ** 2 * S_w)).magnitude
 C['L'] = (W * np.cos(theta_0) / (1/2 * rho * V_0 ** 2 * S_w * np.cos(phi_0))).magnitude

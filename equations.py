@@ -31,3 +31,20 @@ phi = -deltaalpha
 
 B = {}
 # I'm not really sure how to proceed... I can't find any definitions for C['X,muhat'], or even what muhat is
+
+
+
+
+
+
+D['x,delta_e'] = (rho * S_w * l_ref)/(2*W/g)*C['X,delta_e']
+D['z,delta_e'] = (rho * S_w * l_ref)/(2*W/g)*C['Z,delta_e']
+D['m,delta_e'] = (rho * S_w * cbar_w * l_ref**2)/(2*I['yy_b'])*C['m,delta_e']
+D['y,delta_r'] = (rho * S_w * l_ref)/(2*W/g)*C['Y,delta_r']
+D['l,delta_r'] = (rho * S_w * b_w * l_ref**2)/(2*I['xx_b'])*C['l,delta_r']
+D['n,delta_r'] = (rho * S_w * b_w * l_ref**2)/(2*I['zz_b'])*C['n,delta_r']
+
+
+
+
+

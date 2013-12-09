@@ -28,38 +28,38 @@ B['m,alphaprime'] = (rho * S_w * cbar_w ** 2 * l_ref * C['m,alphahat'] / (4 * I[
 A['g'] = g * l_ref / V_0 ** 2
 # A['x,mu'] = (rho * S_w * l_ref / (2 * W / g) * (2 * C['X'] + C['X,mu'] + T[',V'] * np.cos(alpha_T0) / (0.5 * rho * V_0 * S_w))) # missing variables
 
-A['x,alpha'] = (rho * S_w * l_ref)/(2*W/g)*C['X,aplha']
-A['z,alpha'] = (rho * S_w * l_ref)/(2*W/g)*C['Z,aplha']
-A['m,alpha'] = (rho * S_w * l_ref)/(2*W/g)*C['m,aplha']
+A['x,alpha'] = (rho * S_w * l_ref)/(2*W/g)*C['X,alpha']
+A['z,alpha'] = (rho * S_w * l_ref)/(2*W/g)*C['Z,alpha']
+A['m,alpha'] = (rho * S_w * l_ref)/(2*W/g)*C['m,alpha']
 
 A['y,beta'] = (rho * S_w * l_ref)/(2*W/g)*C['Y,beta']
-A['l,beta'] = (rho * S_w * b_w * l_ref^2)/(2*I['xx_b'])*C['l,beta']
-A['n,beta'] = (rho * S_w * b_w * l_ref^2)/(2*I['zz_b'])*C['n,beta']
+A['l,beta'] = (rho * S_w * b_w * l_ref ** 2)/(2*I['xx_b'])*C['l,beta']
+A['n,beta'] = (rho * S_w * b_w * l_ref ** 2)/(2*I['zz_b'])*C['n,beta']
 
-A['l,alpha'] = (rho * S_w * b_w * l_ref^2)/(2*I['xx_b'])*C['l,aplha']
-A['m,beta'] = (rho * S_w * cbar_w * l_ref^2)/(2*I['yy_b'])*C['m,beta']
-A['n,alpha'] = (rho * S_w * b_w * l_ref^2)/(2*I['zz_b'])*C['n,aplha']
+A['l,alpha'] = (rho * S_w * b_w * l_ref ** 2)/(2*I['xx_b'])*C['l,alpha']
+A['m,beta'] = (rho * S_w * cbar_w * l_ref ** 2)/(2*I['yy_b'])*C['m,beta']
+A['n,alpha'] = (rho * S_w * b_w * l_ref ** 2)/(2*I['zz_b'])*C['n,alpha']
 
 A['y,pswoosh'] = (rho * S_w * b_w)/(4*W/g)*C['Y,pbar']
-A['l,pswoosh'] = (rho * S_w * b_w^2 * l_ref)/(4*I['xx_b'])*C['l,pbar']
-A['n,pswoosh'] = (rho * S_w * B_w^2 * l_ref)/(4*I['zz_b'])*C['n,pbar']
+A['l,pswoosh'] = (rho * S_w * b_w ** 2 * l_ref)/(4*I['xx_b'])*C['l,pbar']
+A['n,pswoosh'] = (rho * S_w * b_w ** 2 * l_ref)/(4*I['zz_b'])*C['n,pbar']
 
 A['x,qswoosh'] = (rho * S_w * cbar_w)/(4*W/g)*C['X,qbar']
 A['z,qswoosh'] = (rho * S_w * cbar_w)/(4*W/g)*C['Z,qbar']
-A['m,qswoosh'] = (rho * S_w * cbar_w^2 * l_ref)/(4*I['yy_b'])*C['m,qbar']
+A['m,qswoosh'] = (rho * S_w * cbar_w ** 2 * l_ref)/(4*I['yy_b'])*C['m,qbar']
 
 A['y,rswoosh'] = (rho * S_w * b_w)/(4*W/g)*C['Y,rbar']
-A['l,rswoosh'] = (rho * S_w * b_w^2 * l_ref)/(4*I['xx_b'])*C['l,rbar']
-A['n,rswoosh'] = (rho * S_w * b_w^2 * l_ref)/(4*I['zz_b'])*C['n,rbar']
+A['l,rswoosh'] = (rho * S_w * b_w ** 2 * l_ref)/(4*I['xx_b'])*C['l,rbar']
+A['n,rswoosh'] = (rho * S_w * b_w ** 2 * l_ref)/(4*I['zz_b'])*C['n,rbar']
 
-D['y,delta_a'] = (rho * S_w * l_ref)/(2*W/g)*C['Y,delta_a']
-D['l,delta_a'] = (rho * S_w * l_ref^2)/(2*I['xx_b'])*C['l,delta_a']
-D['n,delta_a'] = (rho * S_w * l_ref^2)/(2*I['zz_b'])*C['n,delta_a']
-
+# D['y,delta_a'] = (rho * S_w * l_ref)/(2*W/g)*C['Y,delta_a']
+D['l,delta_a'] = (rho * S_w * l_ref ** 2)/(2*I['xx_b'])*C['l,delta_a']
+# D['n,delta_a'] = (rho * S_w * l_ref ** 2)/(2*I['zz_b'])*C['n,delta_a']
+# 
 D['x,delta_e'] = (rho * S_w * l_ref)/(2*W/g)*C['X,delta_e']
-D['z,delta_e'] = (rho * S_w * l_ref)/(2*W/g)*C['Z,delta_e']
-D['m,delta_e'] = (rho * S_w * cbar_w * l_ref**2)/(2*I['yy_b'])*C['m,delta_e']
-
+# D['z,delta_e'] = (rho * S_w * l_ref)/(2*W/g)*C['Z,delta_e']
+# D['m,delta_e'] = (rho * S_w * cbar_w * l_ref ** 2)/(2*I['yy_b'])*C['m,delta_e']
+# 
 D['y,delta_r'] = (rho * S_w * l_ref)/(2*W/g)*C['Y,delta_r']
-D['l,delta_r'] = (rho * S_w * b_w * l_ref**2)/(2*I['xx_b'])*C['l,delta_r']
-D['n,delta_r'] = (rho * S_w * b_w * l_ref**2)/(2*I['zz_b'])*C['n,delta_r']
+# D['l,delta_r'] = (rho * S_w * b_w * l_ref ** 2)/(2*I['xx_b'])*C['l,delta_r']
+# D['n,delta_r'] = (rho * S_w * b_w * l_ref ** 2)/(2*I['zz_b'])*C['n,delta_r']

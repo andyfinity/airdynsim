@@ -1,9 +1,12 @@
-from sympy import *
-from numpy import *
-from scipy import *
+from std_includes import *
+from sympy import *     # matrix, MatrixSymbol
+from numpy import *     # sin,cos,tan
+from scipy import *     # linalg.inv
 
 from variables import *
 from equations import *
+
+
 
 #   ****    First Matrix    ****
 
@@ -12,7 +15,7 @@ alpha = matrix(identity(12))
 alpha[0,0] = 1-B['x,muprime']
 alpha[0,2] = -B['x,alphaprime']
 alpha[2,0] = -B['z,muprime']
-alpha[2,2] = 1-B['z,alphaprime']
+alpha[2,2] = 1-B['z,alphaprime'] 
 alpha[3,4] = -i['xy']
 alpha[3,5] = -i['xz']
 alpha[4,0] = -B['m,muprime']
@@ -24,10 +27,25 @@ alpha[5,4] = -i['zy']
 
 alphaInv = linalg.inv(alpha)
 
+
 #   ****    Second Matrix   ****
 
+deltamuprime = None
+deltabetaprime = None
+deltaalphaprime = None
+deltapswooshprime = None
+deltaqswooshprime = None
+deltarswooshprime = None
+deltazeta_xprime = None
+deltazeta_yprime = None
+deltazeta_zprime = None
+deltaphi_0prime = None
+deltatheta_0prime = None
+deltapsiprime = None
+
+
 answer = MatrixSymbol(array([[deltamuprime],
-                             [deltadetaprime],
+                             [deltabetaprime],
                              [deltaalphaprime],
                              [deltapswooshprime],
                              [deltaqswooshprime],
@@ -95,6 +113,8 @@ b = delta * echo
 c = a + b
 
 ans = alphaInv * c
+
+answer = ans
 
 
 

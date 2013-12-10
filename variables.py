@@ -48,6 +48,12 @@ C['n,beta'] = 0.070
 C['L,qbar'] = 3.800
 C['D,qbar'] = 0.000
 
+# Thrust variables
+alpha_T0 = 0.0 * ur.degree
+T[',V'] = 0.0
+x_T = 0.0 * ur.degree
+z_T = 0.0 * ur.degree
+
 # All following numbers are from page 938 and should be calculated
 
 C['X_0'] = -0.097
@@ -89,6 +95,16 @@ C['Y,rbar'] = 0.239
 C['l,rbar'] = 0.130
 C['n,rbar'] = -0.131
 
+# TODO: Where are these defined?
+
+C['Y,delta_a'] = 0.0
 C['l,delta_a'] = 0.0 # page 568, 5.7.3
+C['n,delta_a'] = 0.0
+
 C['X,delta_e'] = 0.0 # around page 386
+C['Z,delta_e'] = 0.0
+C['m,delta_e'] = 0.0
+
 C['Y,delta_r'] = 0.0 # TODO: find equations
+C['l,delta_r'] = 0.0
+C['n,delta_r'] = 0.0

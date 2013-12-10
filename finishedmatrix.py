@@ -1,17 +1,16 @@
-diff --git a/solver.py b/solver.py
-index 17cccda..52922e4 100644
---- a/solver.py
-+++ b/solver.py
-@@ -28,14 +28,14 @@ from scipy import *
+from scipy import *
+from numpy import *
+from sumpy import *
+
+from equations import *
+from variables import *
+
  ##answer = MatrixSymbol(array([[deltamuprime],
  ##                             [deltadetaprime],
  ##                             [deltaalphaprime],
--##                             [deltapbarprime],
--##                             [deltaqbarprime],
--##                             [deltarbarprime],
-+##                             [deltapswooshprime],
-+##                             [deltaqswooshprime],
-+##                             [deltarswooshprime],
+##                             [deltapswooshprime],
+##                             [deltaqswooshprime],
+##                             [deltarswooshprime],
  ##                             [deltazeta_xprime],
  ##                             [deltazeta_yprime],
  ##                             [deltazeta_zprime],

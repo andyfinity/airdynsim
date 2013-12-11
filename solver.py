@@ -1,7 +1,7 @@
 from std_includes import *
 from sympy import Matrix,MatrixSymbol,Identity     # matrix, MatrixSymbol
 from numpy import sin,cos,tan     # sin,cos,tan
-from scipy.linalg import inv      # linalg.inv
+from numpy.linalg import inv      # linalg.inv     
 from scipy import zeros,array
 
 from variables import *

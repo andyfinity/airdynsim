@@ -1,3 +1,8 @@
+"""
+variables
+
+This is the file to edit if you want to change the initial flight parameters.
+"""
 from std_includes import *
 
 theta_0 = 0 * ur.degree
@@ -98,10 +103,10 @@ C['n,rbar'] = -0.131
 # TODO: Where are these defined?
 
 C['Y,delta_a'] = 0.0
-C['l,delta_a'] = 0.0 # page 568, 5.7.3
+C['l,delta_a'] = 0.0 # page 568, 5.7.3?
 C['n,delta_a'] = 0.0
 
-C['X,delta_e'] = 0.0 # around page 386
+C['X,delta_e'] = 0.0 # around page 386?
 C['Z,delta_e'] = 0.0
 C['m,delta_e'] = 0.0
 

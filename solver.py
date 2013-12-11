@@ -1,13 +1,10 @@
 from std_includes import *
-from sympy import Matrix,MatrixSymbol,Identity     # matrix, MatrixSymbol
-from numpy import sin,cos,tan     # sin,cos,tan
-from numpy.linalg import inv      # linalg.inv     
+from sympy import Matrix,MatrixSymbol,Identity
 from scipy import zeros,array
+from numpy import linalg
 
 from variables import *
 from equations import *
-
-
 
 #   ****    First Matrix    ****
 
@@ -26,7 +23,7 @@ alpha[4,5] = -i['yz']
 alpha[5,3] = -i['zx']
 alpha[5,4] = -i['zy']
 
-alphaInv = inv(alpha)
+alphaInv = linalg.inv(alpha)
 
 
 #   ****    Second Matrix   ****
@@ -57,7 +54,6 @@ answer = MatrixSymbol(array([[deltamuprime],
                              [deltaphi_0prime],
                              [deltatheta_0prime],
                              [deltapsiprime]]),1,12)
-
 #   ****    Third Matrix    ****
 
 # bravo = matrix(zeros([12,3]))
@@ -133,7 +129,6 @@ echo = MatrixSymbol(array([[deltamu],
 #   ****    Solve   ****
 
 # a = bravo * charle
-print(bravo * charle)
 # print(Matrix(a))
 # 
 # b = delta * echo

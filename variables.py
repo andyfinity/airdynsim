@@ -104,13 +104,13 @@ C['n,rbar'] = -0.131
 
 #   Changed to 1.0 for testing
 
-C['Y,delta_a'] = 0.1
-C['l,delta_a'] = 0.1 # page 568, 5.7.3?
-C['n,delta_a'] = 0.1
+C['Y,delta_a'] = 0.0
+C['l,delta_a'] = 0.0 # page 568, 5.7.3?
+C['n,delta_a'] = 0.0
 
-C['X,delta_e'] = 0.1 # around page 386?
-C['Z,delta_e'] = 0.1
-C['m,delta_e'] = 0.1
+C['X,delta_e'] = 0.0 # around page 386?
+C['Z,delta_e'] = 0.0
+C['m,delta_e'] = 0.0
 
 C['Y,delta_r'] = 0.0 # TODO: find equations
 C['l,delta_r'] = 0.0

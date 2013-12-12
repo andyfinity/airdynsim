@@ -25,9 +25,9 @@ deltadelta_a = 0.1
 deltadelta_e = 0.1
 deltadelta_r = 0.1
 
-deltamu = 0.001   
+deltamu = 0.0   
 deltabeta = 0.0  
-deltaalpha = 0.0
+deltaalpha = 0.001
 deltapswoosh = 0.0
 deltaqswoosh = 0.0
 deltarswoosh = 0.0
@@ -149,15 +149,19 @@ while(True):
      
     ans = alphaInv * c
     
-    print(ans)
+#     print(ans)
+    print(" Δmu =",deltamu," Δbeta =",deltabeta," Δalpha =",deltaalpha,
+          " Δpswoosh =",deltapswoosh," Δqswoosh =",deltaqswoosh," Δrswoosh =",deltarswoosh,
+          " Δzeta_x =",deltazeta_x," Δzeta_y =",deltazeta_y," Δzeta_z =",deltazeta_z,
+          " Δphi =",deltaphi_0," Δtheta =",deltatheta_0," Δmu =",deltapsi)
     end = time()
     timestep = end - start
     start = time()
     tau_0 = tau(timestep)
     
     deltamu += ans[0] * tau_0 
-    deltabeta += ans[1] * tau_0
-    deltaalpha += ans[2] * tau_0
+    deltabeta = ans[1] * tau_0
+    deltaalpha = ans[2] * tau_0
     deltapswoosh += ans[3] * tau_0
     deltaqswoosh += ans[4] * tau_0
     deltarswoosh += ans[5] * tau_0

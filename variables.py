@@ -55,7 +55,7 @@ C['D,qbar'] = 0.000
 
 # Thrust variables
 alpha_T0 = 0.0 * ur.degree
-T[',V'] = 0.0
+T[',V'] = 1.0       #changed to 1 from 0
 x_T = 0.0 * ur.degree
 z_T = 0.0 * ur.degree
 
@@ -102,14 +102,16 @@ C['n,rbar'] = -0.131
 
 # TODO: Where are these defined?
 
-C['Y,delta_a'] = 0.0
-C['l,delta_a'] = 0.0 # page 568, 5.7.3?
-C['n,delta_a'] = 0.0
+#   Changed to 1.0 for testing
 
-C['X,delta_e'] = 0.0 # around page 386?
-C['Z,delta_e'] = 0.0
-C['m,delta_e'] = 0.0
+C['Y,delta_a'] = 1.0
+C['l,delta_a'] = 1.0 # page 568, 5.7.3?
+C['n,delta_a'] = 1.0
 
-C['Y,delta_r'] = 0.0 # TODO: find equations
-C['l,delta_r'] = 0.0
-C['n,delta_r'] = 0.0
+C['X,delta_e'] = 1.0 # around page 386?
+C['Z,delta_e'] = 1.0
+C['m,delta_e'] = 1.0
+
+C['Y,delta_r'] = 1.0 # TODO: find equations
+C['l,delta_r'] = 1.0
+C['n,delta_r'] = 1.0

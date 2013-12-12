@@ -1,4 +1,10 @@
+"""
+std_includes
+
+Contains all the often-used imports and variables.
+"""
 from debug import *
+from numpy import sin,cos,tan
 from pint import UnitRegistry
 ur = UnitRegistry()
 

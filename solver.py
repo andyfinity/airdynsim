@@ -58,6 +58,13 @@ answer = MatrixSymbol(array([[deltamuprime],
                              [deltatheta_0prime],
                              [deltapsiprime]]),1,12)
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 #   ****    Third Matrix    ****
 
 # bravo = matrix(zeros([12,3]))

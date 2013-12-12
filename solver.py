@@ -6,9 +6,42 @@ from numpy import * #linalg,zeros,array
 from variables import *
 from equations import *
 
-#   ****    First Matrix    ****
+from time import sleep,time
 
-#alpha = Matrix(Identity(12))
+deltamuprime = 0.0
+deltabetaprime = 0.0
+deltaalphaprime = 0.0
+deltapswooshprime = 0.0
+deltaqswooshprime = 0.0
+deltarswooshprime = 0.0
+deltazeta_xprime = 0.0
+deltazeta_yprime = 0.0
+deltazeta_zprime = 0.0
+deltaphi_0prime = 0.0
+deltatheta_0prime = 0.0
+deltapsiprime = 0.0
+
+deltadelta_a = 0.1
+deltadelta_e = 0.1
+deltadelta_r = 0.1
+
+deltamu = 0.001   
+deltabeta = 0.0  
+deltaalpha = 0.0
+deltapswoosh = 0.0
+deltaqswoosh = 0.0
+deltarswoosh = 0.0
+deltazeta_x = 1.0
+deltazeta_y = 0.0
+deltazeta_z = 0.0
+deltaphi_0 = 0.0
+deltatheta_0 = 0.0
+deltapsi = 0.0
+
+tau = lambda t: (V_0 * t / l_ref).magnitude
+
+
+#   ****    First Matrix    ****
 
 alpha = zeros((12,12), dtype=float)
 
@@ -39,31 +72,7 @@ alphaInv = linalg.inv(alpha)
 
 #   ****    Second Matrix   ****
 
-deltamuprime = None
-deltabetaprime = None
-deltaalphaprime = None
-deltapswooshprime = None
-deltaqswooshprime = None
-deltarswooshprime = None
-deltazeta_xprime = None
-deltazeta_yprime = None
-deltazeta_zprime = None
-deltaphi_0prime = None
-deltatheta_0prime = None
-deltapsiprime = None
 
-answer = array(([[deltamuprime],
-                [deltabetaprime],
-                [deltaalphaprime],
-                [deltapswooshprime],
-                [deltaqswooshprime],
-                [deltarswooshprime],
-                [deltazeta_xprime],
-                [deltazeta_yprime],
-                [deltazeta_zprime],
-                [deltaphi_0prime],
-                [deltatheta_0prime],
-                [deltapsiprime]]),dtype=float)
 
 
 #   ****    Third Matrix    ****
@@ -83,10 +92,6 @@ bravo = array(([[0,D['x,delta_e'],0],
 
 #   ****    Fourth Matrix   ****
 
-deltadelta_a = 0.0
-deltadelta_e = 0.0
-deltadelta_r = 0.0
-
 charlie = array(([[deltadelta_a],
                 [deltadelta_e],
                 [deltadelta_r]]),dtype=float)
@@ -94,7 +99,7 @@ charlie = array(([[deltadelta_a],
 #   ****    Fifth Matrix    ****
 
 delta = array(([[A['x,mu'],A['g']*sin(phi_0)*cos(theta_0),A['x,alpha']-A['g']*(tan(phi_0)*sin(phi_0)*cos(theta_0)).magnitude,0,A['x,qswoosh'],0,0,0,0,0,-A['g']*cos(theta_0),0],
-               [-A['g']*sin(phi_0)*cos(theta_0),A['y,beta'],-A['g']*tan(phi)*sin(theta_0),A['y,pswoosh'],0,A['y,rswoosh']-1,0,0,0,A['g']*cos(phi_0)*cos(theta_0),-A['g']*sin(phi_0)*sin(theta_0),0],
+               [-A['g']*sin(phi_0)*cos(theta_0),A['y,beta'],-A['g']*tan(phi_0)*sin(theta_0),A['y,pswoosh'],0,A['y,rswoosh']-1,0,0,0,A['g']*cos(phi_0)*cos(theta_0),-A['g']*sin(phi_0)*sin(theta_0),0],
                [A['z,mu']+A['g']*(tan(phi_0)*sin(phi_0)*cos(theta_0)).magnitude,A['g']*tan(phi_0)*sin(theta_0),A['z,alpha'],0,A['z,qswoosh']+1,0,0,0,0,-A['g']*sin(phi_0)*cos(theta_0),-A['g']*cos(phi_0)*sin(theta_0),0],
                [0,A['l,beta'],A['l,alpha'],A['l,pswoosh']+eta['xx'],-eta['xy'],A['l,rswoosh'],0,0,0,0,0,0],
                [A['m,mu'],A['m,beta'],A['m,alpha'],eta['yx'],A['m,qswoosh']+eta['yy'],-eta['yz'],0,0,0,0,0,0],
@@ -106,46 +111,59 @@ delta = array(([[A['x,mu'],A['g']*sin(phi_0)*cos(theta_0),A['x,alpha']-A['g']*(t
                [0,0,0,0,cos(phi_0),-sin(phi_0),0,0,0,-A['g']*tan(phi_0)*cos(theta_0),0,0],
                [0,0,0,0,sin(phi_0)/cos(theta_0),cos(phi_0)*cos(theta_0),0,0,0,0,A['g']*tan(phi_0)*tan(theta_0),0]]),dtype=float)
 
+#     answer = array(([[deltamuprime],
+#                     [deltabetaprime],
+#                     [deltaalphaprime],
+#                     [deltapswooshprime],
+#                     [deltaqswooshprime],
+#                     [deltarswooshprime],
+#                     [deltazeta_xprime],
+#                     [deltazeta_yprime],
+#                     [deltazeta_zprime],
+#                     [deltaphi_0prime],
+#                     [deltatheta_0prime],
+#                     [deltapsiprime]]),dtype=float)
+
+
+start = time()
+
+while(True):
 #   ****    Sixth Matrix    ****
-deltamu = 1.0    
-deltadeta = 1.0  
-deltaalpha = 1.0 
-deltapswoosh = 1.0
-deltaqswoosh = 1.0
-deltarswoosh = 1.0
-deltazeta_x = 1.0
-deltazeta_y = 1.0
-deltazeta_z = 1.0
-deltaphi_0 = 1.0
-deltatheta_0 = 1.0
-deltapsi = 1.0
-
-echo = array(([[deltamu],
-              [deltadeta],
-              [deltaalpha],
-              [deltapswoosh],
-              [deltaqswoosh],
-              [deltarswoosh],
-              [deltazeta_x],
-              [deltazeta_y],
-              [deltazeta_z],
-              [deltaphi_0],
-              [deltatheta_0],
-              [deltapsi]]),dtype=float)
-
-#   ****    Solve   ****
-
-a = Matrix(bravo) * Matrix(charlie)
-# print(Matrix(a))
- 
-b = Matrix(delta) * Matrix(echo)
- 
-c = a + b
- 
-ans = alphaInv * c
-return ans
-print(ans)
-##print(alpha)
-##print()
-##print(delta)
-
+    echo = array(([[deltamu],
+                  [deltabeta],
+                  [deltaalpha],
+                  [deltapswoosh],
+                  [deltaqswoosh],
+                  [deltarswoosh],
+                  [deltazeta_x],
+                  [deltazeta_y],
+                  [deltazeta_z],
+                  [deltaphi_0],
+                  [deltatheta_0],
+                  [deltapsi]]),dtype=float)
+    
+    #   ****    Solve   ****
+    a = Matrix(bravo) * Matrix(charlie) # control surfaces
+    b = Matrix(delta) * Matrix(echo) # model
+    c = a + b
+     
+    ans = alphaInv * c
+    
+    print(ans)
+    end = time()
+    timestep = end - start
+    start = time()
+    tau_0 = tau(timestep)
+    
+    deltamu += ans[0] * tau_0 
+    deltabeta += ans[1] * tau_0
+    deltaalpha += ans[2] * tau_0
+    deltapswoosh += ans[3] * tau_0
+    deltaqswoosh += ans[4] * tau_0
+    deltarswoosh += ans[5] * tau_0
+    deltazeta_x += ans[6] * tau_0
+    deltazeta_y += ans[7] * tau_0
+    deltazeta_z += ans[8] * tau_0
+    deltaphi_0 += ans[9] * tau_0
+    deltatheta_0 += ans[10] * tau_0
+    deltapsi += ans[11] * tau_0

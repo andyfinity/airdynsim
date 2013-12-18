@@ -63,7 +63,7 @@ global GEAR CONHIS SPOIL u x V tuHis deluHis uInc TrimHist SMI MODEL
     MODEL   = 1;    % Aerodynamic model selection
                 % 0: Incompressible flow, high angle of attack
                 % 1: Compressible flow, low angle of attack
-    TRIM    = 1;    % Trim flag (= 1 to calculate trim)
+    TRIM    = 0;    % Trim flag (= 1 to calculate trim)
     LINEAR  = 0;    % Linear model flag (= 1 to calculate and store F and G)
     SIMUL   = 1;    % Flight path flag (= 1 for nonlinear simulation)
     GEAR    = 0;    % Landing gear DOWN (= 1) or UP (= 0)
@@ -73,7 +73,7 @@ global GEAR CONHIS SPOIL u x V tuHis deluHis uInc TrimHist SMI MODEL
     
 %    Altitude (ft), Indicated Airspeed (kt), Dynamic Pressure (N/m^2), and True Airspeed (m/s) for Trim Condition to be chosen by the User
 
-    hft         =   30000;                      % Altitude above Sea Level, ft
+    hft         =   31000;                      % Altitude above Sea Level, ft
     hm          =   hft * 0.3048;                % Altitude above Sea Level, m
     
     VKIAS       =   115;                         % Indicated Airspeed, kt
@@ -93,10 +93,10 @@ global GEAR CONHIS SPOIL u x V tuHis deluHis uInc TrimHist SMI MODEL
     beta    =    0;                  % Sideslip angle, deg    (relative to air mass)
     dA      =    0;                  % Aileron angle, deg
     dAS     =    0;                  % Asymmetric spoiler angle, deg
-    dE      =    1;                  % Elevator angle, deg
+    dE      =    -10;                  % Elevator angle, deg
     dR      =    0;                  % Rudder angle, deg
     dS      =    -0.0342*57.29578;   % Stabilator setting, deg
-    dT      =    0.1777;             % Throttle setting, % / 100
+    dT      =    0.8;             % Throttle setting, % / 100
     hdot    =    0;                  % Altitude rate, m/s [Inertial vertical flight path angle = 0 if hdot = 0]
     p       =    0;                  % Body-axis roll rate, deg/s
     phi     =    0;                  % Body roll angle wrt earth, deg
@@ -105,7 +105,7 @@ global GEAR CONHIS SPOIL u x V tuHis deluHis uInc TrimHist SMI MODEL
     r       =    0;                  % Body-axis yaw rate, deg/s
     SMI     =    0;                  % Static margin increment due to 
                                      % center-of-mass variation from reference, %/100
-    tf      =    60;                 % Final time, sec
+    tf      =    90;                 % Final time, sec
     ti      =    0;                  % Initial time, sec
     theta   =    alpha;              % Body pitch angle wrt earth, deg [theta = alpha if hdot = 0]
     xe      =    0;                  % Initial longitudinal position, m
@@ -142,12 +142,11 @@ global GEAR CONHIS SPOIL u x V tuHis deluHis uInc TrimHist SMI MODEL
 % See section DEFINITION OF THE CONTROL VECTOR above to determine column meanings.
 
     ndeg    = 1;
-    % Ailerons shall be at +1 degree for 5 seconds, then at -1 degree for 5 seconds, then at 0 for the rest of the simulation
-    tuHis   = [0 4.99 5 10 10.01 tf];
-    deluHis = [0 .01745329 0 0 0 0 0
-               0 .01745329 0 0 0 0 0
-               0 -.01745329 0 0 0 0 0
-               0 -.01745329 0 0 0 0 0
+    tuHis   = [0 4.99 5 10 10.01 100];
+    deluHis = [0 0 0 0 0 0 0
+               0 0 0 0 0 0 0
+               0 0 0 0 0 0 0
+               0 0 0 0 0 0 0
                0 0 0 0 0 0 0
                0 0 0 0 0 0 0];
     uInc    =    [];
@@ -268,7 +267,7 @@ global GEAR CONHIS SPOIL u x V tuHis deluHis uInc TrimHist SMI MODEL
         xo  = x + delx;
         u   = u + delu;
         t   = [];
-        x   = [];
+        %x   = [];
         if is_octave
             t   = linspace(ti,tf,100);
             x   = lsode('EoM',xo,t);

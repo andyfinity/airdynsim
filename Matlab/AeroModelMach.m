@@ -79,14 +79,14 @@
 	
 	CLdSr	=	1.08;				% Stabilator Effect, per rad
 	if u(6) >= 0.65
-		CLdSr	=	CLdSr - 0.4802;	% 38�-flap correction
+		CLdSr	=	CLdSr - 0.4802;	% 38 deg-flap correction
 	end
 	
 	CLdEr	=	0.5774;				% Elevator Effect, per rad
 	if u(6) >= 0.65
 		CLdEr	=	CLdEr - 0.2665;	% 38 deg-flap correction
 	end
-
+         
 	CL	=	CLo + (CLar*alphar + CLqr*x(8) + CLdSr*u(7) + CLdEr*u(1)) ...
 			* WingMach;
                                     % Total Lift Coefficient, w/Mach Correction
@@ -107,7 +107,6 @@
 	if u(6) >= 0.65
 		epsilon	=	0.079;			% 38 deg-flap correction
 	end
-
 	CD	=	CDo * PrFac + epsilon * CL^2;
                                     % Total Drag Coefficient, w/Mach Correction
 	

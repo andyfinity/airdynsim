@@ -43,17 +43,15 @@
 	else
 		uTotal	=	u;
     end
-
 %	Force and Moment Coefficients; Thrust	
 	[CD,CL,CY,Cl,Cm,Cn,Thrust]	=	AeroModel(x,uTotal,Mach,alphar,betar,V);
 
 	qbarS	=	qbar * S;
-
+	
 	CX	=	-CD * cos(alphar) + CL * sin(alphar);	% Body-axis X coefficient
 	CZ	= 	-CD * sin(alphar) - CL * cos(alphar);	% Body-axis Z coefficient
 
 %	State Accelerations
-   
 	Xb =	(CX * qbarS + Thrust) / m;
 	Yb =	CY * qbarS / m;
 	Zb =	CZ * qbarS / m;
